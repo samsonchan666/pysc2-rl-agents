@@ -15,7 +15,7 @@ class FullyConv():
   computations. Inputs and outputs are always in NHWC.
   """
 
-  def __init__(self, data_format='NCHW'):
+  def __init__(self, data_format='NHWC'):
     self.data_format = data_format
 
   def embed_obs(self, x, spec, embed_fn):

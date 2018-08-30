@@ -35,8 +35,10 @@ def stack_ndarray_dicts(lst, axis=0):
   """Concatenate ndarray values from list of dicts
   along new axis."""
   res = {}
+
   for k in lst[0].keys():
-    res[k] = np.stack([d[k] for d in lst], axis=axis)
+    res[k] = np.stack([np.array(d[k]) for d in lst], axis=axis)
+    # res[k] = np.concatenate([np.array(d[k]) for d in lst], axis=axis)
   return res
 
 
@@ -71,8 +73,8 @@ class Preprocessor():
     available_actions = np.zeros(NUM_FUNCTIONS, dtype=np.float32)
     available_actions[obs['available_actions']] = 1
 
-    screen = self._preprocess_spatial(obs['screen'])
-    minimap = self._preprocess_spatial(obs['minimap'])
+    screen = self._preprocess_spatial(obs.feature_screen)
+    minimap = self._preprocess_spatial(obs.feature_minimap)
 
     flat = np.concatenate([
         obs['player']])

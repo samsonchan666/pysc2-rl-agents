@@ -18,7 +18,7 @@ class A2CAgent():
   def __init__(self,
                sess,
                network_cls=FullyConv,
-               network_data_format='NCHW',
+               network_data_format='NHWC',
                value_loss_weight=0.5,
                entropy_weight=1e-3,
                learning_rate=7e-4,

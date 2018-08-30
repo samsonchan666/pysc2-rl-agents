@@ -12,6 +12,7 @@ from rl.agents.a2c.agent import A2CAgent
 from rl.networks.fully_conv import FullyConv
 from rl.environment import SubprocVecEnv, make_sc2env, SingleEnv
 
+from pysc2.env import sc2_env
 
 # Workaround for pysc2 flags
 from absl import flags
@@ -96,8 +97,7 @@ def main():
         map_name=args.map,
         step_mul=args.step_mul,
         game_steps_per_episode=0,
-        screen_size_px=size_px,
-        minimap_size_px=size_px)
+        agent_interface_format=sc2_env.AgentInterfaceFormat(feature_dimensions=sc2_env.Dimensions( screen=size_px, minimap=size_px)))
     vis_env_args = env_args.copy()
     vis_env_args['visualize'] = args.vis
     num_vis = min(args.envs, args.max_windows)
