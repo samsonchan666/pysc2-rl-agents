@@ -96,13 +96,13 @@ We ran each experiment on a single Titan X Pascal (12GB).
 
 ### Software Requirements
 - Python 3
-- pysc2 (tested with v1.2)
+- pysc2 (tested with master commit 37371ed)
 - TensorFlow (tested with 1.4.0)
 - StarCraft II and mini games (see below or
   [pysc2](https://github.com/deepmind/pysc2/))
 
 ### Quick Install Guide
-- `pip install numpy tensorflow-gpu pysc2==1.2`
+- `pip install numpy tensorflow-gpu pysc2`
 - Install StarCraft II. On Linux, use
 [3.16.1](http://blzdistsc2-a.akamaihd.net/Linux/SC2.3.16.1.zip).
 - Download the
